@@ -10,7 +10,7 @@
             padding: 0;
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #004d00, #009933);
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,8 +18,9 @@
         }
 
         .container {
-            width: 350px;
-            padding: 30px;
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
             background: rgba(255, 255, 255, 0.15);
             border-radius: 15px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -29,45 +30,44 @@
             color: white;
         }
 
-
         @keyframes bounce {
             0%, 100% {
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-20px);
+                transform: translateY(-15px);
             }
         }
 
         .container img {
-            width: 120px;
+            width: 100px;
             margin-bottom: 20px;
             animation: bounce 2s infinite;
         }
 
         .container h1 {
-            font-size: 26px;
-            margin-bottom: 15px;
+            font-size: 22px;
+            margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1.2px;
         }
 
         .container p {
-            font-size: 16px;
-            margin-bottom: 20px;
+            font-size: 14px;
+            margin-bottom: 15px;
             color: #e0e0e0;
         }
 
         .form-group {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 10px;
             align-items: center;
         }
 
         .form-group input {
-            width: 90%;
-            padding: 12px;
+            width: 100%;
+            padding: 10px;
             border: none;
             border-radius: 8px;
             font-size: 14px;
@@ -80,12 +80,12 @@
         }
 
         .form-group button {
-            width: 90%;
-            padding: 12px;
+            width: 100%;
+            padding: 10px;
             border: none;
             border-radius: 8px;
             background: #00cc66;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: bold;
             color: white;
             cursor: pointer;
@@ -99,20 +99,20 @@
 
         .error-message {
             color: #ff5757;
-            margin-top: 15px;
+            margin-top: 10px;
             display: none;
-            font-size: 14px;
+            font-size: 12px;
         }
 
         footer {
             position: absolute;
-            bottom: 10px;
+            bottom: 5px;
             width: 100%;
             text-align: center;
-            font-size: 14px;
+            font-size: 12px;
             color: #ffffff;
             background: rgba(0, 0, 0, 0.3);
-            padding: 10px 0;
+            padding: 5px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
